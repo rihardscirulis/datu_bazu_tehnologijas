@@ -1,0 +1,88 @@
+/* Background krasas css kods */
+body {
+    background-color: rgb(235, 210, 158);
+}
+/* -------------------  */
+
+main {
+    padding-bottom: 50px;
+}
+
+/* Navigācijas css kods */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(233, 116, 49);
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: rgb(105, 111, 116);
+}
+/* -------------------  */
+
+/* Logo bildes css kods */
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+/* -------------------  */
+
+/* Virsrakstu h1, h2 css kods */
+h1 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+/* -------------------  */
+
+/* Footera formātējums */
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    font-size: 8pt;
+    font-family: 'Times New Roman', Times, serif;
+}
+/* -------------------  */
+
+/* Tabulas css kods */
+table td, th {
+    border: 0.1px solid black;
+    background-color: white;
+    text-align: center;
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    font-size: 11pt;
+}
+
+th {
+    background-color: rgb(233, 116, 49);
+    color: black;
+}
+/* -------------------  */

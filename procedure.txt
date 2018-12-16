@@ -1,0 +1,31 @@
+DELIMITER // 
+CREATE PROCEDURE personFiltrationByClub(clubID INT)
+BEGIN
+    SELECT persona.Personas_ID as ID, persona.Vards as 'Vārds', persona.Uzvards as 'Uzvārds',
+        kluba_biedri.Pienemsanas_datums as 'Pieņemts', persona.Telefona_numurs as 'Telefona numurs', 
+        persona.E_pasts as 'E-pasts'
+        FROM persona
+        JOIN kluba_biedri
+        ON persona.Personas_ID = kluba_biedri.Personas_ID
+        JOIN klubs
+        ON persona.Kluba_ID = klubs.Kluba_ID
+        WHERE klubs.Kluba_ID = clubID
+        ORDER BY persona.Uzvards ASC;
+END//
+DELIMITER ; 
+
+DELIMITER // 
+CREATE PROCEDURE personFiltrationByGroup(groupID INT)
+BEGIN
+    SELECT persona.Personas_ID as ID, persona.Vards as 'Vārds', 
+        persona.Uzvards as 'Uzvārds', kluba_biedri.Pienemsanas_datums as 'Pieņemts', 
+        persona.Telefona_numurs as 'Telefona numurs', persona.E_pasts as 'E-pasts' 
+        FROM persona 
+        JOIN kluba_biedri 
+        ON persona.Personas_ID = kluba_biedri.Personas_ID 
+        JOIN grupa 
+        ON persona.Grupas_ID = grupa.Grupas_ID 
+        WHERE grupa.Grupas_ID = groupID 
+        ORDER BY persona.Uzvards ASC;
+END//
+DELIMITER ;

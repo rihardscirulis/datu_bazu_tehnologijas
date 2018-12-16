@@ -1,0 +1,21 @@
+/* pievieno jaunas personas id attiecigi ari uz kluba biedra tabulu*/
+DELIMITER //
+CREATE TRIGGER personAdd
+    AFTER INSERT ON persona
+    FOR EACH ROW
+    BEGIN
+        INSERT INTO kluba_biedri (Pienemsanas_datums, Personas_ID)
+        VALUES (NOW(), NEW.Personas_ID);
+    END //
+DELIMITER ;
+
+/* kad tiek dzesta persona, tad attiecigi tiek dzests ari no otras tabulas */
+DELIMITER //
+CREATE TRIGGER personDelete
+    AFTER DELETE ON persona
+    FOR EACH ROW
+    BEGIN
+        DELETE FROM kluba_biedri 
+        WHERE kluba_biedri.Personas_ID = OLD.Personas_ID;
+    END //
+DELIMITER ;

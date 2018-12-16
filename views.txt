@@ -1,0 +1,43 @@
+//////////////////////////////////////////////
+CREATE VIEW Sort_person_by_club AS
+    SELECT persona.Personas_ID AS ID,
+        persona.Vards AS 'Vārds',
+        persona.Uzvards AS 'Uzvārds',
+        kluba_biedri.Pienemsanas_datums AS 'Pieņemts',
+        persona.Telefona_numurs AS 'Telefona numurs',
+        persona.E_pasts AS 'E-pasts'
+        FROM persona
+        JOIN kluba_biedri
+        ON persona.Personas_ID = kluba_biedri.Personas_ID
+        JOIN klubs
+        ON persona.Kluba_ID = Klubs.Kluba_ID
+    WHERE klubs.Kluba_ID = getClubID()
+    ORDER BY persona.Uzvards ASC;
+
+CREATE FUNCTION getClubID()
+    RETURNS INTEGER
+    DETERMINISTIC NO SQL
+    RETURN klubs.Kluba_ID;
+//////////////////////////////////////////////
+
+//////////////////////////////////////////////
+CREATE VIEW Sort_person_by_group AS
+    SELECT persona.Personas_ID AS ID,
+        persona.Vards AS 'Vārds',
+        persona.Uzvards AS 'Uzvārds',
+        kluba_biedri.Pienemsanas_datums AS 'Pieņemts',
+        persona.Telefona_numurs AS 'Telefona numurs',
+        persona.E_pasts AS 'E-pasts'
+        FROM persona
+        JOIN kluba_biedri
+        ON persona.Personas_ID = kluba_biedri.Personas_ID
+        JOIN grupa
+        ON persona.Grupas_ID = grupa.Grupas_ID
+    WHERE grupa.Grupas_ID = getGroupID()
+    ORDER BY persona.Uzvards ASC;
+
+CREATE FUNCTION getGroupID()
+    RETURNS INTEGER
+    DETERMINISTIC NO SQL
+    RETURN @groupID;
+//////////////////////////////////////////////

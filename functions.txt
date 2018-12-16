@@ -1,0 +1,7 @@
+DELIMITER //
+CREATE FUNCTION solveAge(birthdate DATE)
+    RETURNS INT
+    BEGIN
+        RETURN TIMESTAMPDIFF(YEAR,birthdate,CURDATE());
+    END//
+DELIMITER ;
